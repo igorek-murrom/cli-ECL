@@ -1,0 +1,16 @@
+/условие.pdf
+/.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+/build/
+/dist/
+*.egg-info/
+*.zip
+*.tar
+*.tar.*
+*.whl
+.idea/
+.vscode/

@@ -1,0 +1,20 @@
+start: definition* value
+definition: "(" _DEFINE DEFINITION_NAME value ")"
+
+?value: number | string | array | dictionary | reference
+number: NUMBER
+string: STRING
+array: "[" [value (";" value)*] "]"
+dictionary: "dict" "(" [pair ("," pair)*] ")"
+pair: NAME "=" value
+reference: REFERENCE
+
+_DEFINE: /define(?=\s)/
+DEFINITION_NAME: NAME /(?=\s)/
+NAME: /[a-z][a-z0-9_]*/
+NUMBER: /-?(?:\d+\.\d*|\.\d+|\d+)(?:[eE][-+]?\d+)?/
+STRING: /@"[^"\r\n]*"/
+REFERENCE: "#{" NAME "}"
+
+%import common.WS
+%ignore WS
