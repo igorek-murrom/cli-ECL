@@ -38,7 +38,7 @@ def _syntax_error(text, error):
 
 
 @v_args(inline=True)
-class _Evaluate(Transformer):
+class ConfigEvaluator(Transformer):
     """Вычислить значения дерева и обработать объявления констант."""
 
     def __init__(self):
@@ -106,7 +106,7 @@ def parse_config(text):
     """Разобрать текст и вычислить корневое значение конфигурации."""
     try:
         tree = _PARSER.parse(text)
-        return _Evaluate().transform(tree)
+        return ConfigEvaluator().transform(tree)
     except UnexpectedInput as error:
         raise _syntax_error(text, error) from None
     except VisitError as error:

@@ -64,7 +64,7 @@ printf '%s\n' 'dict(port = 8080)' | ./run.sh
 | `config_parser._error(line, column, message)` | Создаёт ошибку с координатами. |
 | `config_parser._syntax_error(text, error)` | Преобразует диагностику Lark в ошибку конфигурации. |
 
-Методы обработчика грамматики `_Evaluate` создают таблицу констант
+Методы обработчика грамматики `ConfigEvaluator` создают таблицу констант
 (`__init__`), возвращают корневое значение (`start`), сохраняют и подставляют
 константы (`definition`, `reference`), преобразуют литералы (`number`,
 `string`), собирают массивы (`array`) и словари (`pair`, `dictionary`).
